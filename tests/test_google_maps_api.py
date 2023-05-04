@@ -23,3 +23,6 @@ class TestCreatePlace:
 
         print("Method DELETE")
         result_delete = GoogleMapsApi.delete_new_place(place_id)
+
+        print("Method GET DELETE")
+        result_get = GoogleMapsApi.get_new_place(place_id)
