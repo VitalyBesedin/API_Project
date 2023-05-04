@@ -14,6 +14,7 @@ class TestCreatePlace:
 
         print("Method GET")
         result_get = GoogleMapsApi.get_new_place(place_id)
+        print(result_get)
 
 
 
