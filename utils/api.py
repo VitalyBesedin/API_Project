@@ -68,10 +68,12 @@ class GoogleMapsApi:
         delete_url = base_url + delete_resourse + key
         print(delete_url)
         json_for_delete_new_location = {
-            "place_id": place_id,
+            "place_id": place_id
         }
         result_delete = HttpMethods.delete(delete_url, json_for_delete_new_location)
         print(result_delete.text)
+        return result_delete
+
 
 
 
