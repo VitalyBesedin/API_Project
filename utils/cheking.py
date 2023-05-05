@@ -16,3 +16,20 @@ class Checking:
         token = json.loads(result.text)
         assert list(token) == expected_value
         print("All fields are present")
+
+    """Method for checking the values of required fields in a response to a request"""
+    @staticmethod
+    def check_json_value(result, field_name, expected_value):
+        check = result.json()
+        check_info = check.get(field_name)
+        assert check_info == expected_value
+        print(field_name, " correct!!!")
+
+    """Method for checking the values of required fields in the request response for a given word"""
+
+    @staticmethod
+    def check_json_search_word_in_value(result, field_name, search_word):
+        check = result.json()
+        check_info = check.get(field_name)
+        assert search_word in check_info
+        print(f'The word {search_word} is present!!!')
