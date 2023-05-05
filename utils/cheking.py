@@ -15,4 +15,4 @@ class Checking:
     def check_json_token(result, expected_value):
         token = json.loads(result.text)
         assert list(token) == expected_value
-        print("Все поля присутствуют")
+        print("All fields are present")
