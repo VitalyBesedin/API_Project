@@ -42,3 +42,6 @@ class TestCreatePlace:
         result_get = GoogleMapsApi.get_new_place(place_id)
         Checking.check_status_code(result_get, 404)
         Checking.check_json_token(result_get, ['msg'])
+
+
+        print("Testing of creating, changing and deleting a new location was successful!!!")
