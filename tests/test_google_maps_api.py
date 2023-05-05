@@ -13,6 +13,7 @@ class TestCreatePlace:
         place_id = check_post.get("place_id")
         Checking.check_status_code(result_post, 200)
         Checking.check_json_token(result_post, ['status', 'place_id', 'scope', 'reference', 'id'])
+        Checking.check_json_value(result_post, 'status', 'OK')
 
         print("Method GET POST")
         result_get = GoogleMapsApi.get_new_place(place_id)
