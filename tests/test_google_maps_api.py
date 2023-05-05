@@ -17,9 +17,10 @@ class TestCreatePlace:
         print("Method GET POST")
         result_get = GoogleMapsApi.get_new_place(place_id)
         Checking.check_status_code(result_get, 200)
-        token = json.loads(result_get.text)
-        print(list(token))
-
+        # token = json.loads(result_get.text)   #  getting a list of fields
+        # print(list(token))
+        Checking.check_json_token(result_get, ['location', 'accuracy', 'name', 'phone_number', 'address',
+                                               'types', 'website', 'language'])
 
         print("Method PUT")
         result_put = GoogleMapsApi.put_new_place(place_id)
@@ -29,17 +30,15 @@ class TestCreatePlace:
         print("Method GET PUT")
         result_get = GoogleMapsApi.get_new_place(place_id)
         Checking.check_status_code(result_get, 200)
-        token = json.loads(result_get.text)
-        print(list(token))
+        Checking.check_json_token(result_get, ['location', 'accuracy', 'name', 'phone_number', 'address',
+                                               'types', 'website', 'language'])
 
         print("Method DELETE")
         result_delete = GoogleMapsApi.delete_new_place(place_id)
         Checking.check_status_code(result_delete, 200)
-        token = json.loads(result_delete.text)
-        print(list(token))
+        Checking.check_json_token(result_delete, ['status'])
 
         print("Method GET DELETE")
         result_get = GoogleMapsApi.get_new_place(place_id)
         Checking.check_status_code(result_get, 404)
-        token = json.loads(result_get.text)
-        print(list(token))
+        Checking.check_json_token(result_get, ['msg'])
