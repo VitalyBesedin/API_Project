@@ -23,7 +23,7 @@ class Checking:
         check = result.json()
         check_info = check.get(field_name)
         assert check_info == expected_value
-        print(field_name, " correct!!!")
+        print(f'the value of the {field_name} field is correct!!!")
 
     """Method for checking the values of required fields in the request response for a given word"""
 
