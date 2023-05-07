@@ -3,7 +3,8 @@ import os
 
 
 class Logger:
-    file_name = f"\logs\log_" + str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
+    file_name = f"/Users/vitalybesedin/PycharmProjects/API_Project/logs/log_" + \
+                str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
 
     @classmethod
     def write_log_to_file(cls, data: str):
@@ -11,7 +12,7 @@ class Logger:
             logger_file.write(data)
 
     @classmethod
-    def add_start_step(cls, url: str, method: str):
+    def add_request(cls, url: str, method: str):
         test_name = os.environ.get('PYTEST_CURRENT_TEST')
 
         data_to_add = f"\n-----\n"
@@ -28,7 +29,7 @@ class Logger:
         cookies_as_dict = dict(result.cookies)
         headers_as_dict = dict(result.headers)
 
-        data_to_add = f"Response code: {result.statuse_code}\n"
+        data_to_add = f"Response code: {result.status_code}\n"
         data_to_add += f"Response text: {result.text}\n"
         data_to_add += f"Response headers: {headers_as_dict}\n"
         data_to_add += f"Response cookies: {cookies_as_dict}\n"
