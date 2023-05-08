@@ -1,8 +1,11 @@
 import datetime
 import os
+import pathlib
 
 
 class Logger:
+    # file_name = "log_" + str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
+    # path = pathlib.Path(pathlib.Path.cwd().parent, 'logs', file_name)
     file_name = f"/Users/vitalybesedin/PycharmProjects/API_Project/logs/log_" + \
                 str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
 
